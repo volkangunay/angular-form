@@ -1,0 +1,82 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Company</mat-label>
+    <input matInput disabled value="SophieTech" />
+  </mat-form-field>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Ad</mat-label>
+          <input matInput required />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Soyad</mat-label>
+          <input matInput required />
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Email</mat-label>
+    <input
+      type="email"
+      matInput
+      [formControl]="emailFormControl"
+      [errorStateMatcher]="matcher"
+    />
+    <mat-error
+      *ngIf="
+        emailFormControl.hasError('email') &&
+        !emailFormControl.hasError('required')
+      "
+    >
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('required')">
+      E-mail <strong>gerekli</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <p>
+    <mat-form-field class="example-full-width">
+      <mat-label>Adres</mat-label>
+      <textarea matInput required></textarea>
+    </mat-form-field>
+  </p>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Şehir</mat-label>
+          <input matInput required />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>İlçe</mat-label>
+          <input matInput required />
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width">
+          <mat-label>Posta Kodu</mat-label>
+          <input required matInput #postalCode maxlength="5" />
+          <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+        </mat-form-field>
+      </td>
+    </tr>
+    <div class="example-button-row">
+      <button mat-button color="primary">Gönder</button>
+    </div>
+  </table>
+</form>
