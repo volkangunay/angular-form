@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Actions</th>
+      <th>
+        <button mat-icon-button color="secondary" aria-label="Example icon button with a heart icon" routerLink="/create-post">
+          Yeni Ekle
+        </button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let post of posts">
+      <td>{{ post.title }}</td>
+      <td>
+        <button mat-icon-button color="primary" aria-label="Example icon button with a heart icon" [routerLink]="['/edit-post', post.id]">
+          Edit
+        </button>
+        <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" (click)="deletePost(post.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

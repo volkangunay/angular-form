@@ -1,0 +1,15 @@
+<a routerLink="/list">List'e dön</a>
+<form [formGroup]="postForm" (submit)="save()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Title: </mat-label>
+    <input matInput formControlName="title" />
+  </mat-form-field>
+  <div *ngIf="postForm.controls.title.touched && postForm.controls.title.errors?.required">Title is required.</div>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Body: </mat-label>
+    <input matInput formControlName="body" />
+  </mat-form-field>
+  <div *ngIf="postForm.controls.body.touched && postForm.controls.body.errors?.required">body is required.</div>
+  <button mat-raised-button color="accent" type="submit" [disabled]="postForm.invalid">Kaydet</button>
+</form>

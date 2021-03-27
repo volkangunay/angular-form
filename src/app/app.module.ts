@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 //Components
 import { InputErrorStateMatcherExample } from './components/form/form.component';
@@ -21,18 +21,30 @@ import {
   ErrorStateMatcher,
   ShowOnDirtyErrorStateMatcher,
 } from '@angular/material/core';
-
+import { ListComponent } from './pages/list/list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CreatePostComponent } from './pages/create-post/create-post.component';
+import { CommonModule } from '@angular/common';
+import { EditPostComponent } from './pages/edit-post/edit-post.component';
 @NgModule({
-  declarations: [AppComponent, InputErrorStateMatcherExample],
+  declarations: [
+    AppComponent,
+    InputErrorStateMatcherExample,
+    ListComponent,
+    CreatePostComponent,
+    EditPostComponent,
+  ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher },
